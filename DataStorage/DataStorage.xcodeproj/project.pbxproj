@@ -14,6 +14,9 @@
 		AC4039841FD1505800FBAF26 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC4039821FD1505800FBAF26 /* LaunchScreen.storyboard */; };
 		AC40398F1FD1505800FBAF26 /* DataStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC40398E1FD1505800FBAF26 /* DataStorageTests.swift */; };
 		AC40399A1FD1505800FBAF26 /* DataStorageUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4039991FD1505800FBAF26 /* DataStorageUITests.swift */; };
+		AC4039A91FD15AA600FBAF26 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC4039A81FD15AA600FBAF26 /* libsqlite3.tbd */; };
+		AC4039AD1FD15CFB00FBAF26 /* Sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4039AC1FD15CFB00FBAF26 /* Sensor.swift */; };
+		AC4039AF1FD15DB500FBAF26 /* SensorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4039AE1FD15DB500FBAF26 /* SensorData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,9 @@
 		AC4039951FD1505800FBAF26 /* DataStorageUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DataStorageUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC4039991FD1505800FBAF26 /* DataStorageUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStorageUITests.swift; sourceTree = "<group>"; };
 		AC40399B1FD1505800FBAF26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC4039A81FD15AA600FBAF26 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		AC4039AC1FD15CFB00FBAF26 /* Sensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Sensor.swift; path = ../Sensor.swift; sourceTree = "<group>"; };
+		AC4039AE1FD15DB500FBAF26 /* SensorData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC4039A91FD15AA600FBAF26 /* libsqlite3.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +88,7 @@
 				AC40398D1FD1505800FBAF26 /* DataStorageTests */,
 				AC4039981FD1505800FBAF26 /* DataStorageUITests */,
 				AC4039771FD1505800FBAF26 /* Products */,
+				AC4039A71FD15AA500FBAF26 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,12 +105,14 @@
 		AC4039781FD1505800FBAF26 /* DataStorage */ = {
 			isa = PBXGroup;
 			children = (
+				AC4039AC1FD15CFB00FBAF26 /* Sensor.swift */,
 				AC4039791FD1505800FBAF26 /* AppDelegate.swift */,
 				AC40397B1FD1505800FBAF26 /* ViewController.swift */,
 				AC40397D1FD1505800FBAF26 /* Main.storyboard */,
 				AC4039801FD1505800FBAF26 /* Assets.xcassets */,
 				AC4039821FD1505800FBAF26 /* LaunchScreen.storyboard */,
 				AC4039851FD1505800FBAF26 /* Info.plist */,
+				AC4039AE1FD15DB500FBAF26 /* SensorData.swift */,
 			);
 			path = DataStorage;
 			sourceTree = "<group>";
@@ -123,6 +133,14 @@
 				AC40399B1FD1505800FBAF26 /* Info.plist */,
 			);
 			path = DataStorageUITests;
+			sourceTree = "<group>";
+		};
+		AC4039A71FD15AA500FBAF26 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AC4039A81FD15AA600FBAF26 /* libsqlite3.tbd */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,7 +278,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC40397C1FD1505800FBAF26 /* ViewController.swift in Sources */,
+				AC4039AD1FD15CFB00FBAF26 /* Sensor.swift in Sources */,
 				AC40397A1FD1505800FBAF26 /* AppDelegate.swift in Sources */,
+				AC4039AF1FD15DB500FBAF26 /* SensorData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,6 +525,7 @@
 				AC4039A01FD1505800FBAF26 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AC4039A11FD1505800FBAF26 /* Build configuration list for PBXNativeTarget "DataStorageTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +534,7 @@
 				AC4039A31FD1505800FBAF26 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AC4039A41FD1505800FBAF26 /* Build configuration list for PBXNativeTarget "DataStorageUITests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +543,7 @@
 				AC4039A61FD1505800FBAF26 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
