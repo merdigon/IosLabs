@@ -53,6 +53,7 @@
 		AC4039A81FD15AA600FBAF26 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		AC4039AC1FD15CFB00FBAF26 /* Sensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Sensor.swift; path = ../Sensor.swift; sourceTree = "<group>"; };
 		AC4039AE1FD15DB500FBAF26 /* SensorData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorData.swift; sourceTree = "<group>"; };
+		AC43B0BF1FDA8CCC00E76FD2 /* DataStorage-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DataStorage-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +85,7 @@
 		AC40396D1FD1505800FBAF26 = {
 			isa = PBXGroup;
 			children = (
+				AC43B0BF1FDA8CCC00E76FD2 /* DataStorage-Bridging-Header.h */,
 				AC4039781FD1505800FBAF26 /* DataStorage */,
 				AC40398D1FD1505800FBAF26 /* DataStorageTests */,
 				AC4039981FD1505800FBAF26 /* DataStorageUITests */,
@@ -436,6 +438,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = dupa.DataStorage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "DataStorage-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -448,6 +451,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = dupa.DataStorage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "DataStorage-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

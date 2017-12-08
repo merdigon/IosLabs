@@ -9,7 +9,8 @@
 
 import Foundation
 
-class Sensor {
-    var name = ""
-    var description = ""
+struct Sensor {
+    var id: Int
+    var name : String
+    var description: String
 }

@@ -8,8 +8,9 @@
 
 import Foundation
 
-class SensorData {
-    var sensor : Sensor
-    var date : Date
-    var data = ""
+struct SensorData {
+    
+    var sensorName : String
+    var date : String
+    var data : String
 }
