@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC179A191FE3D0A6003CD69C /* readSensorsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC179A181FE3D0A6003CD69C /* readSensorsTableViewController.swift */; };
+		AC179A1B1FE3D18E003CD69C /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC179A1A1FE3D18E003CD69C /* DatabaseManager.swift */; };
 		AC40397A1FD1505800FBAF26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4039791FD1505800FBAF26 /* AppDelegate.swift */; };
 		AC40397C1FD1505800FBAF26 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC40397B1FD1505800FBAF26 /* ViewController.swift */; };
 		AC40397F1FD1505800FBAF26 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC40397D1FD1505800FBAF26 /* Main.storyboard */; };
@@ -37,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AC179A181FE3D0A6003CD69C /* readSensorsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = readSensorsTableViewController.swift; sourceTree = "<group>"; };
+		AC179A1A1FE3D18E003CD69C /* DatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		AC4039761FD1505800FBAF26 /* DataStorage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DataStorage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC4039791FD1505800FBAF26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC40397B1FD1505800FBAF26 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -110,7 +114,9 @@
 				AC4039AC1FD15CFB00FBAF26 /* Sensor.swift */,
 				AC4039791FD1505800FBAF26 /* AppDelegate.swift */,
 				AC40397B1FD1505800FBAF26 /* ViewController.swift */,
+				AC179A1A1FE3D18E003CD69C /* DatabaseManager.swift */,
 				AC40397D1FD1505800FBAF26 /* Main.storyboard */,
+				AC179A181FE3D0A6003CD69C /* readSensorsTableViewController.swift */,
 				AC4039801FD1505800FBAF26 /* Assets.xcassets */,
 				AC4039821FD1505800FBAF26 /* LaunchScreen.storyboard */,
 				AC4039851FD1505800FBAF26 /* Info.plist */,
@@ -281,6 +287,8 @@
 			files = (
 				AC40397C1FD1505800FBAF26 /* ViewController.swift in Sources */,
 				AC4039AD1FD15CFB00FBAF26 /* Sensor.swift in Sources */,
+				AC179A1B1FE3D18E003CD69C /* DatabaseManager.swift in Sources */,
+				AC179A191FE3D0A6003CD69C /* readSensorsTableViewController.swift in Sources */,
 				AC40397A1FD1505800FBAF26 /* AppDelegate.swift in Sources */,
 				AC4039AF1FD15DB500FBAF26 /* SensorData.swift in Sources */,
 			);

@@ -12,7 +12,7 @@
         <!--Item-->
         <scene sceneID="fUK-gG-oIV">
             <objects>
-                <tableViewController id="rsh-n3-hn8" sceneMemberID="viewController">
+                <tableViewController id="rsh-n3-hn8" customClass="readSensorsTableViewController" customModule="DataStorage" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="BWn-T0-o4c">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -87,6 +87,9 @@
                                 <rect key="frame" x="16" y="87" width="181" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Add"/>
+                                <connections>
+                                    <action selector="addButtonClick:" destination="jaH-Jd-9hB" eventType="touchUpInside" id="cfF-hv-t6H"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F0s-0I-ESZ">
                                 <rect key="frame" x="205" y="87" width="154" height="30"/>
@@ -110,6 +113,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="yuK-hT-yob"/>
+                    <connections>
+                        <outlet property="addButton" destination="Ozk-RB-U0F" id="3wG-3u-BMY"/>
+                        <outlet property="recordsQuantity" destination="NwL-S8-P8j" id="t7D-no-5Uf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="45d-KI-zUX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
