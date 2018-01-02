@@ -25,9 +25,9 @@ class DatabaseManager: NSObject {
     }
     
     func createDatabase() {
-        let createSensor = "CREATE TABLE IF NOT EXISTS sensor (id INTEGER PRIMARY KEY AUTOINCREMENT, name character varying(150), description character varying(150));"
+        let createSensor = "CREATE TABLE IF NOT EXISTS sensor (id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(50), description VARCHAR(150));"
         print(sqlite3_exec(db, createSensor, nil, nil, nil))
-        let createSensorData = "CREATE TABLE IF NOT EXISTS sensorData (id INTEGER PRIMARY KEY AUTOINCREMENT, date DEFAULT CURRENT_TIMESTAMP NOT NULL, data character varying(150), id_sensor integer, FOREIGN KEY(id_sensor) REFERENCES sensor(id));"
+        let createSensorData = "CREATE TABLE IF NOT EXISTS sensorData (id INTEGER PRIMARY KEY AUTOINCREMENT, date DEFAULT CURRENT_TIMESTAMP NOT NULL, data VARCHAR(150), id_sensor integer, FOREIGN KEY(id_sensor) REFERENCES sensor(id));"
         print(sqlite3_exec(db, createSensorData, nil, nil, nil))
         
         let clearSensorDataSql = "DELETE FROM sensorData";
@@ -42,12 +42,13 @@ class DatabaseManager: NSObject {
                     let sensorNumberString = (sensorNumber < 10 ? "0" + String(sensorNumber) : String(sensorNumber))
                     let sensorName = "S" + sensorNumberString
                     let sensorDescription = "Sensor number " + String(sensorNumber)
-                    let insertSensorsSql = "INSERT INTO sensor(name, description) VALUES (\(sensorName), \(sensorDescription));"
+                    let insertSensorsSql = "INSERT INTO sensor(name, description) VALUES ('\(sensorName)', '\(sensorDescription)');"
+                    
                     print(sqlite3_exec(db, insertSensorsSql, nil, nil, nil))
                 }
             }
         }
-        
+        sqlite3_finalize(stmt)
     }
     
     func readSensorData() -> [SensorData] {
@@ -86,19 +87,20 @@ class DatabaseManager: NSObject {
     
     func insertDataToDb(numberOfData: Int) {
         
-        let selectSQL = "SELECT id FROM sensor;"
+        let selectSQL = "SELECT id, name FROM sensor;"
         var ids = [Int]()
         var stmt: OpaquePointer? = nil
-        sqlite3_prepare_v2(db, selectSQL, -1, &stmt, nil)
+        print(sqlite3_prepare_v2(db, selectSQL, -1, &stmt, nil))
         while sqlite3_step(stmt) == SQLITE_ROW {
             ids.append(Int(sqlite3_column_int(stmt, 0)))
         }
+        sqlite3_finalize(stmt)
         
         for _ in 1...(numberOfData) {
-            let sensorId = ids[Int(arc4random_uniform(UInt32(ids.count)))]
+            let sensorId = ids[Int(arc4random_uniform(UInt32(ids.count))) - 1]
             let date = Int(arc4random_uniform(UInt32(Date().timeIntervalSince1970)))
             let data = Int(arc4random_uniform(100))
-            let insertSQL = "INSERT INTO sensorData (date, data, id_sensor) VALUES (\(date), \(data), \(sensorId));"
+            let insertSQL = "INSERT INTO sensorData (date, data, id_sensor) VALUES ('\(date)', '\(data)', \(sensorId));"
             sqlite3_exec(db, insertSQL, nil, nil, nil)
         }
         

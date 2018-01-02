@@ -14,6 +14,8 @@ class ViewController: UIViewController {
         
     @IBOutlet weak var recordsQuantity: UITextField!
     
+    @IBOutlet weak var addButton: UIButton!
+    
     @IBAction func addButtonClick(_ sender: Any) {
             let numbers = Int(recordsQuantity.text!)
             dbManager.insertDataToDb(numberOfData: numbers!)
@@ -26,6 +28,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        dbManager.openConnection()
                 // Do any additional setup after loading the view, typically from a nib.
     }
 

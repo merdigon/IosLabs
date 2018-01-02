@@ -1,20 +1,22 @@
 //
-//  readSensorsTableViewController.swift
+//  ReadSensorDataTableViewController.swift
 //  DataStorage
 //
-//  Created by Użytkownik Gość on 15.12.2017.
-//  Copyright © 2017 Użytkownik Gość. All rights reserved.
+//  Created by merdigon on 02/01/2018.
+//  Copyright © 2018 Użytkownik Gość. All rights reserved.
 //
 
 import UIKit
 
-class ReadSensorsTableViewController: UITableViewController {
-
-    var sensors : [Sensor] = []
+class ReadSensorDataTableViewController: UITableViewController {
+    
+    var sensorsData : [SensorData] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        sensorsData = dbManager.readSensorData()
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -33,25 +35,21 @@ class ReadSensorsTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        sensors = dbManager.readSensors()
-    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return sensors.count
+        return sensorsData.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
-        cell.textLabel?.text = "Sensor \(sensors[indexPath.row].name) - \(sensors[indexPath.row].description)"
+        cell.textLabel?.text = "Sensor data: \(sensorsData[indexPath.row].sensorName) - \(sensorsData[indexPath.row].data)"
 
         return cell
     }
- 
+    
 
     /*
     // Override to support conditional editing of the table view.
