@@ -36,6 +36,7 @@ class ReadSensorsTableViewController: UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         sensors = dbManager.readSensors()
+        self.tableView.reloadData()
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
