@@ -11,6 +11,6 @@ import Foundation
 struct SensorData {
     
     var sensorName : String
-    var date : String
+    var date : Int
     var data : String
 }

@@ -11,6 +11,9 @@ import UIKit
 class DatabaseManager: NSObject {
     var db: OpaquePointer? = nil
     
+    var smallestLargestTimeStampSql = "SELECT min(date), max(date) FROM sensorData;"
+    var averageRead = "SELECT avg(data) FROM sensorData;"
+    var numberOfReadingsAndAvgValue = "SELECT name, avg(data), count(*) FROM sensorData inner join sensor on sensorData.id_sensor = sensor.id group by name;";
     
     func openConnection() {
         let docDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
@@ -27,7 +30,7 @@ class DatabaseManager: NSObject {
     func createDatabase() {
         let createSensor = "CREATE TABLE IF NOT EXISTS sensor (id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(50), description VARCHAR(150));"
         print(sqlite3_exec(db, createSensor, nil, nil, nil))
-        let createSensorData = "CREATE TABLE IF NOT EXISTS sensorData (id INTEGER PRIMARY KEY AUTOINCREMENT, date DEFAULT CURRENT_TIMESTAMP NOT NULL, data VARCHAR(150), id_sensor integer, FOREIGN KEY(id_sensor) REFERENCES sensor(id));"
+        let createSensorData = "CREATE TABLE IF NOT EXISTS sensorData (id INTEGER PRIMARY KEY AUTOINCREMENT, date INTEGER, data DECIMAL(3,5), id_sensor integer, FOREIGN KEY(id_sensor) REFERENCES sensor(id));"
         print(sqlite3_exec(db, createSensorData, nil, nil, nil))
         
         let clearSensorDataSql = "DELETE FROM sensorData";
@@ -59,13 +62,47 @@ class DatabaseManager: NSObject {
         sqlite3_prepare_v2(db, selectSQL, -1, &stmt, nil)
         while sqlite3_step(stmt) == SQLITE_ROW {
             let sensorData = SensorData(sensorName: String(cString: sqlite3_column_text(stmt, 2)),
-                                        date: String(cString: sqlite3_column_text(stmt, 0)),
+                                        date: Int(sqlite3_column_int(stmt, 0)),
                                         data: String(cString: sqlite3_column_text(stmt, 1)))
             sensorDatas.append(sensorData);
             print("Dana z sensora \(sensorData.sensorName), \(sensorData.date), \(sensorData.data).")
         }
         sqlite3_finalize(stmt)
         return sensorDatas
+    }
+    
+    func findMinMaxTimestamps() -> [Int] {
+        var stmt: OpaquePointer? = nil
+        var minMaxTimestamps = [-1, -1]
+        sqlite3_prepare_v2(db, smallestLargestTimeStampSql, -1, &stmt, nil)
+        if sqlite3_step(stmt) == SQLITE_ROW {
+            minMaxTimestamps = [Int(sqlite3_column_int(stmt, 0)), Int(sqlite3_column_int(stmt, 1))]
+        }
+        sqlite3_finalize(stmt)
+        return minMaxTimestamps
+    }
+    
+    func findAvgSensorValue() -> Double {
+        var stmt: OpaquePointer? = nil
+        var avgValue = Double(-1)
+        sqlite3_prepare_v2(db, averageRead, -1, &stmt, nil)
+        if sqlite3_step(stmt) == SQLITE_ROW {
+            avgValue = Double(sqlite3_column_double(stmt, 0))
+        }
+        sqlite3_finalize(stmt)
+        return avgValue
+    }
+    
+    func findSensorDataAvgAndCountForSensors() -> [(String, Double, Int)] {
+        var result: [(String, Double, Int)] = []
+        var stmt: OpaquePointer? = nil
+        sqlite3_prepare_v2(db, numberOfReadingsAndAvgValue, -1, &stmt, nil)
+        while sqlite3_step(stmt) == SQLITE_ROW {
+            let sensorResult = (String(cString: sqlite3_column_text(stmt, 0)), Double(sqlite3_column_double(stmt, 1)), Int(sqlite3_column_int(stmt, 2)))
+            result.append(sensorResult);
+        }
+        sqlite3_finalize(stmt)
+        return result
     }
     
     func readSensors() -> [Sensor] {
@@ -85,6 +122,11 @@ class DatabaseManager: NSObject {
         return sensors
     }
     
+    func deleteSensorData() {
+        let createSensor = "DELETE FROM sensorData;"
+        print(sqlite3_exec(db, createSensor, nil, nil, nil))
+    }
+    
     func insertDataToDb(numberOfData: Int) {
         
         let selectSQL = "SELECT id, name FROM sensor;"
@@ -95,14 +137,15 @@ class DatabaseManager: NSObject {
             ids.append(Int(sqlite3_column_int(stmt, 0)))
         }
         sqlite3_finalize(stmt)
-        
+        sqlite3_exec(db, "BEGIN TRANSACTION", nil, nil, nil);
         for _ in 1...(numberOfData) {
-            let sensorId = ids[Int(arc4random_uniform(UInt32(ids.count))) - 1]
+            let randomValue = Int(arc4random_uniform(UInt32(ids.count - 1)))
+            let sensorId = ids[randomValue]
             let date = Int(arc4random_uniform(UInt32(Date().timeIntervalSince1970)))
-            let data = Int(arc4random_uniform(100))
+            let data = Float(arc4random_uniform(100))
             let insertSQL = "INSERT INTO sensorData (date, data, id_sensor) VALUES ('\(date)', '\(data)', \(sensorId));"
             sqlite3_exec(db, insertSQL, nil, nil, nil)
         }
-        
-    }
+        sqlite3_exec(db, "COMMIT TRANSACTION", nil, nil, nil);
+    }  
 }

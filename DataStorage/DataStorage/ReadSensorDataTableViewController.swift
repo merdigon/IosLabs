@@ -15,7 +15,6 @@ class ReadSensorDataTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        sensorsData = dbManager.readSensorData()
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -28,7 +27,11 @@ class ReadSensorDataTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    override func viewDidAppear(_ animated: Bool) {
+        sensorsData = dbManager.readSensorData()
+        self.tableView.reloadData()
+    }
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -43,7 +46,7 @@ class ReadSensorDataTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell2", for: indexPath) as UITableViewCell
 
         cell.textLabel?.text = "Sensor data: \(sensorsData[indexPath.row].sensorName) - \(sensorsData[indexPath.row].data)"
 

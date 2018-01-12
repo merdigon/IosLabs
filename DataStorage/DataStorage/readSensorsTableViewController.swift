@@ -14,8 +14,8 @@ class ReadSensorsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
+        
+               // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
@@ -36,6 +36,7 @@ class ReadSensorsTableViewController: UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         sensors = dbManager.readSensors()
+        self.tableView.reloadData()
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -45,7 +46,7 @@ class ReadSensorsTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as UITableViewCell
 
         cell.textLabel?.text = "Sensor \(sensors[indexPath.row].name) - \(sensors[indexPath.row].description)"
 
