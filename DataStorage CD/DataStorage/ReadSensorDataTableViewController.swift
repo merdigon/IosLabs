@@ -29,7 +29,7 @@ class ReadSensorDataTableViewController: UITableViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        sensorsData = dbManager.readSensorData()
+        sensorsData = cdManager.readSensorData()
         self.tableView.reloadData()
     }
     // MARK: - Table view data source
@@ -48,7 +48,7 @@ class ReadSensorDataTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell2", for: indexPath) as UITableViewCell
 
-        cell.textLabel?.text = "Sensor data: \(sensorsData[indexPath.row].sensorName) - \(sensorsData[indexPath.row].data)"
+        cell.textLabel?.text = "Sensor data: \(String(describing: sensorsData[indexPath.row].sensor?.name)) - \(sensorsData[indexPath.row].data)"
 
         return cell
     }

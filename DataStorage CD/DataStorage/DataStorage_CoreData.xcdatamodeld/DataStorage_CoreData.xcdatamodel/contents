@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="17A365" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Sensor" representedClassName="Sensor" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sensorDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="sensorDatas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SensorData" inverseName="sensor" inverseEntity="SensorData" syncable="YES"/>
+    </entity>
+    <entity name="SensorData" representedClassName="SensorData" syncable="YES" codeGenerationType="class">
+        <attribute name="data" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="sensor" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Sensor" inverseName="sensorDatas" inverseEntity="Sensor" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Sensor" positionX="-351" positionY="-54" width="128" height="88"/>
+        <element name="SensorData" positionX="-54" positionY="-9" width="128" height="88"/>
+    </elements>
+</model>

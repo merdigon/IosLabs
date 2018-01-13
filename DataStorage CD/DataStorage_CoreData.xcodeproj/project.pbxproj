@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2E7602751FFC0FF300854A57 /* ReadSensorDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7602741FFC0FF300854A57 /* ReadSensorDataTableViewController.swift */; };
+		2E7FAE6E200A424300AE82DE /* DataStorage_CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2E7FAE6C200A424300AE82DE /* DataStorage_CoreData.xcdatamodeld */; };
 		AC179A191FE3D0A6003CD69C /* ReadSensorsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC179A181FE3D0A6003CD69C /* ReadSensorsTableViewController.swift */; };
-		AC179A1B1FE3D18E003CD69C /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC179A1A1FE3D18E003CD69C /* DatabaseManager.swift */; };
+		AC179A1B1FE3D18E003CD69C /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC179A1A1FE3D18E003CD69C /* CoreDataManager.swift */; };
 		AC40397A1FD1505800FBAF26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4039791FD1505800FBAF26 /* AppDelegate.swift */; };
 		AC40397C1FD1505800FBAF26 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC40397B1FD1505800FBAF26 /* ViewController.swift */; };
 		AC40397F1FD1505800FBAF26 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC40397D1FD1505800FBAF26 /* Main.storyboard */; };
@@ -18,8 +19,6 @@
 		AC40398F1FD1505800FBAF26 /* DataStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC40398E1FD1505800FBAF26 /* DataStorageTests.swift */; };
 		AC40399A1FD1505800FBAF26 /* DataStorageUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4039991FD1505800FBAF26 /* DataStorageUITests.swift */; };
 		AC4039A91FD15AA600FBAF26 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AC4039A81FD15AA600FBAF26 /* libsqlite3.tbd */; };
-		AC4039AD1FD15CFB00FBAF26 /* Sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4039AC1FD15CFB00FBAF26 /* Sensor.swift */; };
-		AC4039AF1FD15DB500FBAF26 /* SensorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4039AE1FD15DB500FBAF26 /* SensorData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,8 +40,9 @@
 
 /* Begin PBXFileReference section */
 		2E7602741FFC0FF300854A57 /* ReadSensorDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadSensorDataTableViewController.swift; sourceTree = "<group>"; };
+		2E7FAE6D200A424300AE82DE /* DataStorage_CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataStorage_CoreData.xcdatamodel; sourceTree = "<group>"; };
 		AC179A181FE3D0A6003CD69C /* ReadSensorsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadSensorsTableViewController.swift; sourceTree = "<group>"; };
-		AC179A1A1FE3D18E003CD69C /* DatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		AC179A1A1FE3D18E003CD69C /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		AC4039761FD1505800FBAF26 /* DataStorage_CoreData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DataStorage_CoreData.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC4039791FD1505800FBAF26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC40397B1FD1505800FBAF26 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -57,8 +57,6 @@
 		AC4039991FD1505800FBAF26 /* DataStorageUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStorageUITests.swift; sourceTree = "<group>"; };
 		AC40399B1FD1505800FBAF26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC4039A81FD15AA600FBAF26 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
-		AC4039AC1FD15CFB00FBAF26 /* Sensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Sensor.swift; path = ../Sensor.swift; sourceTree = "<group>"; };
-		AC4039AE1FD15DB500FBAF26 /* SensorData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorData.swift; sourceTree = "<group>"; };
 		AC43B0BF1FDA8CCC00E76FD2 /* DataStorage-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DataStorage-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -113,17 +111,16 @@
 		AC4039781FD1505800FBAF26 /* DataStorage */ = {
 			isa = PBXGroup;
 			children = (
-				AC4039AC1FD15CFB00FBAF26 /* Sensor.swift */,
 				AC4039791FD1505800FBAF26 /* AppDelegate.swift */,
+				2E7FAE6C200A424300AE82DE /* DataStorage_CoreData.xcdatamodeld */,
 				AC40397B1FD1505800FBAF26 /* ViewController.swift */,
-				AC179A1A1FE3D18E003CD69C /* DatabaseManager.swift */,
+				AC179A1A1FE3D18E003CD69C /* CoreDataManager.swift */,
 				AC40397D1FD1505800FBAF26 /* Main.storyboard */,
 				AC179A181FE3D0A6003CD69C /* ReadSensorsTableViewController.swift */,
 				2E7602741FFC0FF300854A57 /* ReadSensorDataTableViewController.swift */,
 				AC4039801FD1505800FBAF26 /* Assets.xcassets */,
 				AC4039821FD1505800FBAF26 /* LaunchScreen.storyboard */,
 				AC4039851FD1505800FBAF26 /* Info.plist */,
-				AC4039AE1FD15DB500FBAF26 /* SensorData.swift */,
 			);
 			path = DataStorage;
 			sourceTree = "<group>";
@@ -289,12 +286,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC40397C1FD1505800FBAF26 /* ViewController.swift in Sources */,
-				AC4039AD1FD15CFB00FBAF26 /* Sensor.swift in Sources */,
-				AC179A1B1FE3D18E003CD69C /* DatabaseManager.swift in Sources */,
+				AC179A1B1FE3D18E003CD69C /* CoreDataManager.swift in Sources */,
 				2E7602751FFC0FF300854A57 /* ReadSensorDataTableViewController.swift in Sources */,
 				AC179A191FE3D0A6003CD69C /* ReadSensorsTableViewController.swift in Sources */,
 				AC40397A1FD1505800FBAF26 /* AppDelegate.swift in Sources */,
-				AC4039AF1FD15DB500FBAF26 /* SensorData.swift in Sources */,
+				2E7FAE6E200A424300AE82DE /* DataStorage_CoreData.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -562,6 +558,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2E7FAE6C200A424300AE82DE /* DataStorage_CoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2E7FAE6D200A424300AE82DE /* DataStorage_CoreData.xcdatamodel */,
+			);
+			currentVersion = 2E7FAE6D200A424300AE82DE /* DataStorage_CoreData.xcdatamodel */;
+			path = DataStorage_CoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = AC40396E1FD1505800FBAF26 /* Project object */;
 }

@@ -47,7 +47,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "132"
             endingLineNumber = "132"
-            landmarkName = "deleteSensorData()"
+            landmarkName = "insertDataToDb(numberOfData:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -95,23 +95,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "133"
             endingLineNumber = "133"
-            landmarkName = "DatabaseManager"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DataStorage/DatabaseManager.swift"
-            timestampString = "537480972.968783"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "createDatabase()"
+            landmarkName = "insertDataToDb(numberOfData:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

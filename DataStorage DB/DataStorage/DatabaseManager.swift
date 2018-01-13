@@ -28,10 +28,6 @@ class DatabaseManager: NSObject {
     }
     
     func createDatabase() {
-        let dropSensor = "drop table sensor;"
-        print(sqlite3_exec(db, dropSensor, nil, nil, nil))
-        let dropSensorData = "drop table sensorData;"
-        print(sqlite3_exec(db, dropSensorData, nil, nil, nil))
         let createSensor = "CREATE TABLE IF NOT EXISTS sensor (id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(50), description VARCHAR(150));"
         print(sqlite3_exec(db, createSensor, nil, nil, nil))
         let createSensorData = "CREATE TABLE IF NOT EXISTS sensorData (id INTEGER PRIMARY KEY AUTOINCREMENT, date INTEGER, data DECIMAL(3,5), id_sensor integer, FOREIGN KEY(id_sensor) REFERENCES sensor(id));"

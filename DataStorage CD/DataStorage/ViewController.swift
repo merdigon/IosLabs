@@ -8,7 +8,7 @@
 
 import UIKit
 
-var dbManager = DatabaseManager()
+var cdManager = CoreDataManager()
 
 class ViewController: UIViewController {
         
@@ -20,11 +20,11 @@ class ViewController: UIViewController {
     
     @IBAction func addButtonClick(_ sender: Any) {
             let numbers = Int(recordsQuantity.text!)
-            dbManager.insertDataToDb(numberOfData: numbers!)
+            cdManager.insertDataToDb(numberOfData: numbers!)
     }
     
     @IBAction func deleteButtonClick(_ sender: Any) {
-        dbManager.deleteSensorData()
+        cdManager.deleteSensorData()
     }
     
     @IBAction func kExperimentClick(_ sender: Any) {
@@ -38,7 +38,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        dbManager.openConnection()
+        cdManager.initCoreData()
+        cdManager.createSensors()
                 // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -48,30 +49,31 @@ class ViewController: UIViewController {
     }
     
     func performExperiment(numberOfSamples: Int) {
+        
         outputLabel.text = "Dodawanie \(numberOfSamples) próbek\n"
         var startTime = NSDate()
-        dbManager.insertDataToDb(numberOfData: numberOfSamples)
+        cdManager.insertDataToDb(numberOfData: numberOfSamples)
         var finishTime = NSDate()
         var measuredTime = finishTime.timeIntervalSince(startTime as Date)
         outputLabel.text = outputLabel.text + "Zakończono po \(measuredTime)\n\n"
         
-        outputLabel.text = outputLabel.text + "Znajdowanie timestampów\n" + dbManager.smallestLargestTimeStampSql + "\n"
+        outputLabel.text = outputLabel.text + "Znajdowanie timestampów\n"
         startTime = NSDate()
-        let minMaxStemp = dbManager.findMinMaxTimestamps()
+        let minMaxStemp = cdManager.findMinMaxTimestamps()
         finishTime = NSDate()
         measuredTime = finishTime.timeIntervalSince(startTime as Date)
         outputLabel.text = outputLabel.text + "Najmniejszy timestamp: \(minMaxStemp[0]), nawiększy timestamp: \(minMaxStemp[1]). Zakończone po \(measuredTime).\n\n"
         
-        outputLabel.text = outputLabel.text + "Znajdowanie średniej wartości\n" + dbManager.averageRead + "\n"
+        outputLabel.text = outputLabel.text + "Znajdowanie średniej wartości"
         startTime = NSDate()
-        let avgValue = dbManager.findAvgSensorValue()
+        let avgValue = cdManager.findAvgSensorValue()
         finishTime = NSDate()
         measuredTime = finishTime.timeIntervalSince(startTime as Date)
         outputLabel.text = outputLabel.text + "Średnia wartość: \(avgValue). Zakończone po \(measuredTime).\n\n"
         
-        outputLabel.text = outputLabel.text + "Wyniki pogrupowane po sensorach\n" + dbManager.numberOfReadingsAndAvgValue + "\n"
+        outputLabel.text = outputLabel.text + "Wyniki pogrupowane po sensorach"
         startTime = NSDate()
-        let sensorAvgCountValues = dbManager.findSensorDataAvgAndCountForSensors()
+        let sensorAvgCountValues = cdManager.findSensorDataAvgAndCountForSensors()
         finishTime = NSDate()
         measuredTime = finishTime.timeIntervalSince(startTime as Date)
         for sensorData in sensorAvgCountValues {
