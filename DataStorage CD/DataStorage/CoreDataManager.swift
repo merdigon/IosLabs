@@ -54,14 +54,98 @@ class CoreDataManager: NSObject {
     }
     
     func findMinMaxTimestamps() -> [Int] {
-        return [1]
+        let moc = appDelegate!.persistentContainer.viewContext
+        
+        var resultValues: [Int] = []
+        
+        do{
+            let frMin = NSFetchRequest<NSFetchRequestResult>(entityName:"SensorData")
+            frMin.resultType = .dictionaryResultType
+            let edMin = NSExpressionDescription()
+            edMin.name = "MinimumDate"
+            edMin.expression = NSExpression(format: "@min.date")
+            edMin.expressionResultType = .integer32AttributeType
+            frMin.propertiesToFetch = [edMin]
+        
+            var resultMin = try moc.fetch(frMin)
+            resultValues.append((resultMin[0] as! NSDictionary).value(forKey: "MinimumDate")! as! Int)
+            
+            
+            let frMax = NSFetchRequest<NSFetchRequestResult>(entityName:"SensorData")
+            frMax.resultType = .dictionaryResultType
+            let edMax = NSExpressionDescription()
+            edMax.name = "MaximumDate"
+            edMax.expression = NSExpression(format: "@max.date")
+            edMax.expressionResultType = .integer32AttributeType
+            frMax.propertiesToFetch = [edMax]
+            
+            var resultMax = try! moc.fetch(frMax)
+            resultValues.append((resultMax[0] as! NSDictionary).value(forKey: "MaximumDate")! as! Int)
+        }
+        catch {
+            NSLog("Error fetching entity: %@", error.localizedDescription)
+        }
+        return resultValues
     }
     
     func findAvgSensorValue() -> Double {
-        return 1.0
+        let moc = appDelegate!.persistentContainer.viewContext
+        
+        do{
+            let frAvg = NSFetchRequest<NSFetchRequestResult>(entityName:"SensorData")
+            frAvg.resultType = .dictionaryResultType
+            let edAvg = NSExpressionDescription()
+            edAvg.name = "AverageData"
+            edAvg.expression = NSExpression(format: "@avg.data")
+            edAvg.expressionResultType = .doubleAttributeType
+            frAvg.propertiesToFetch = [edAvg]
+            
+            var resultAvg = try moc.fetch(frAvg)
+            var resultValue = ((resultAvg[0] as! NSDictionary).value(forKey: "AverageData")! as! Double)
+            return resultValue
+        }
+        catch {
+            NSLog("Error fetching entity: %@", error.localizedDescription)
+        }
+        
+        return -1.0
     }
     
     func findSensorDataAvgAndCountForSensors() -> [(String, Double, Int)] {
+        let moc = appDelegate!.persistentContainer.viewContext
+        var sensorResultArray:[(String, Double, Int)] = []
+        
+        do{
+            let frAC = NSFetchRequest<NSFetchRequestResult>(entityName:"SensorData")
+            frAC.resultType = .dictionaryResultType
+            frAC.propertiesToFetch = ["sensor"]
+            frAC.propertiesToGroupBy = ["sensor.name"]
+            let edAvg = NSExpressionDescription()
+            edAvg.name = "AverageData"
+            edAvg.expression = NSExpression(format: "@avg.data")
+            edAvg.expressionResultType = .doubleAttributeType
+            let edCount = NSExpressionDescription()
+            let keypathExp1 = NSExpression(forKeyPath: "sensor.name")
+            edCount.expression = NSExpression(forFunction: "count:", arguments: [keypathExp1])
+            edCount.name = "CountData"
+            edCount.expressionResultType = .integer32AttributeType
+            frAC.propertiesToFetch = ["sensor.name", edAvg, edCount]
+            
+            let resultArray = try moc.fetch(frAC)
+            
+            for res in resultArray {
+                let dict = (res as! NSDictionary)
+                let sensorName = dict.value(forKey: "sensor.name")! as! String
+                let sensorAvg = dict.value(forKey: "AverageData")! as! Double
+                let sensorCount = dict.value(forKey: "CountData")! as! Int
+                sensorResultArray.append((sensorName, sensorAvg, sensorCount))
+            }
+            print(resultArray)
+        }
+        catch {
+            NSLog("Error fetching entity: %@", error.localizedDescription)
+        }
+
         return [("error", 1.0, 1)]
     }
     
