@@ -33,9 +33,6 @@ class DatabaseManager: NSObject {
         let createSensorData = "CREATE TABLE IF NOT EXISTS sensorData (id INTEGER PRIMARY KEY AUTOINCREMENT, date INTEGER, data DECIMAL(3,5), id_sensor integer, FOREIGN KEY(id_sensor) REFERENCES sensor(id));"
         print(sqlite3_exec(db, createSensorData, nil, nil, nil))
         
-        let clearSensorDataSql = "DELETE FROM sensorData";
-        print(sqlite3_exec(db, clearSensorDataSql, nil, nil, nil))
-        
         let checkIfExistsSensorsSql = "SELECT COUNT(id) FROM sensor";
         var stmt: OpaquePointer? = nil
         sqlite3_prepare_v2(db, checkIfExistsSensorsSql, -1, &stmt, nil)

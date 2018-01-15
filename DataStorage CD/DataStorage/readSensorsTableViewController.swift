@@ -48,8 +48,9 @@ class ReadSensorsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as UITableViewCell
 
-        cell.textLabel?.text = "Sensor \(String(describing: sensors[indexPath.row].name)) - \(sensors[indexPath.row].description)"
-
+        cell.textLabel?.text = "Sensor \(sensors[indexPath.row].name!)"
+        cell.detailTextLabel?.text = sensors[indexPath.row].sensorDescription!;
+        
         return cell
     }
  

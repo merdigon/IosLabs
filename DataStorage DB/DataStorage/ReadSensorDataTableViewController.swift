@@ -49,6 +49,7 @@ class ReadSensorDataTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell2", for: indexPath) as UITableViewCell
 
         cell.textLabel?.text = "Sensor data: \(sensorsData[indexPath.row].sensorName) - \(sensorsData[indexPath.row].data)"
+        cell.detailTextLabel?.text = "Timestamp: \(sensorsData[indexPath.row].date)"
 
         return cell
     }

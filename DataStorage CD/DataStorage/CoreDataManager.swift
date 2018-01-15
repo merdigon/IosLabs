@@ -101,7 +101,7 @@ class CoreDataManager: NSObject {
             frAvg.propertiesToFetch = [edAvg]
             
             var resultAvg = try moc.fetch(frAvg)
-            var resultValue = ((resultAvg[0] as! NSDictionary).value(forKey: "AverageData")! as! Double)
+            let resultValue = ((resultAvg[0] as! NSDictionary).value(forKey: "AverageData")! as! Double)
             return resultValue
         }
         catch {

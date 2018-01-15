@@ -79,6 +79,8 @@ class ViewController: UIViewController {
             outputLabel.text = outputLabel.text + "\(sensorName): \(sensorReadCount) razy, średnia \(sensorAvg)\n"
         }
         outputLabel.text = outputLabel.text + "Zakończone po \(measuredTime).\n\n"
+        
+        print(outputLabel.text)
     }
 
 }
