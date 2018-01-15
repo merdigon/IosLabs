@@ -62,16 +62,16 @@ class ViewController: UIViewController {
         let minMaxStemp = cdManager.findMinMaxTimestamps()
         finishTime = NSDate()
         measuredTime = finishTime.timeIntervalSince(startTime as Date)
-        outputLabel.text = outputLabel.text + "Najmniejszy timestamp: \(minMaxStemp[0]), nawiększy timestamp: \(minMaxStemp[1]). Zakończone po \(measuredTime).\n\n"
+        outputLabel.text = outputLabel.text + "Najmniejszy timestamp: \(minMaxStemp[0]), nawiększy timestamp: \(minMaxStemp[1]). \nZakończone po \(measuredTime).\n\n"
         
-        outputLabel.text = outputLabel.text + "Znajdowanie średniej wartości"
+        outputLabel.text = outputLabel.text + "Znajdowanie średniej wartości\n"
         startTime = NSDate()
         let avgValue = cdManager.findAvgSensorValue()
         finishTime = NSDate()
         measuredTime = finishTime.timeIntervalSince(startTime as Date)
-        outputLabel.text = outputLabel.text + "Średnia wartość: \(avgValue). Zakończone po \(measuredTime).\n\n"
+        outputLabel.text = outputLabel.text + "Średnia wartość: \(avgValue).\n Zakończone po \(measuredTime).\n\n"
         
-        outputLabel.text = outputLabel.text + "Wyniki pogrupowane po sensorach"
+        outputLabel.text = outputLabel.text + "Wyniki pogrupowane po sensorach\n"
         startTime = NSDate()
         let sensorAvgCountValues = cdManager.findSensorDataAvgAndCountForSensors()
         finishTime = NSDate()

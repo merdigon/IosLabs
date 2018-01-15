@@ -125,7 +125,7 @@ class CoreDataManager: NSObject {
             edAvg.expression = NSExpression(format: "@avg.data")
             edAvg.expressionResultType = .doubleAttributeType
             let edCount = NSExpressionDescription()
-            let keypathExp1 = NSExpression(forKeyPath: "sensor.name")
+            let keypathExp1 = NSExpression(forKeyPath: "data")
             edCount.expression = NSExpression(forFunction: "count:", arguments: [keypathExp1])
             edCount.name = "CountData"
             edCount.expressionResultType = .integer32AttributeType
@@ -140,7 +140,8 @@ class CoreDataManager: NSObject {
                 let sensorCount = dict.value(forKey: "CountData")! as! Int
                 sensorResultArray.append((sensorName, sensorAvg, sensorCount))
             }
-            print(resultArray)
+            
+            return sensorResultArray
         }
         catch {
             NSLog("Error fetching entity: %@", error.localizedDescription)
@@ -163,7 +164,12 @@ class CoreDataManager: NSObject {
     }
     
     func deleteSensorData() {
+        let moc = appDelegate!.persistentContainer.viewContext
+        for sensorData in readSensorData() {
+            moc.delete(sensorData)
+        }
         
+        try? moc.save()
     }
     
     func insertDataToDb(numberOfData: Int) {
