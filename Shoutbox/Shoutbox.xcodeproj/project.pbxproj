@@ -1,0 +1,404 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2E464427200EA2E800B334F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E464426200EA2E800B334F9 /* AppDelegate.swift */; };
+		2E464429200EA2E800B334F9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E464428200EA2E800B334F9 /* ViewController.swift */; };
+		2E46442C200EA2E800B334F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E46442A200EA2E800B334F9 /* Main.storyboard */; };
+		2E46442E200EA2E800B334F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E46442D200EA2E800B334F9 /* Assets.xcassets */; };
+		2E464431200EA2E800B334F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E46442F200EA2E800B334F9 /* LaunchScreen.storyboard */; };
+		2E464439200EA5C300B334F9 /* MessageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E464438200EA5C300B334F9 /* MessageTableViewController.swift */; };
+		2E46443B200EA5E200B334F9 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E46443A200EA5E200B334F9 /* Message.swift */; };
+		B8EA7B7E39D211034E2680D4 /* Pods_Shoutbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EFF75AAE60CF5613E51FBE /* Pods_Shoutbox.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		16FDFCC3E5D1070CCF436BBD /* Pods-Shoutbox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shoutbox.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Shoutbox/Pods-Shoutbox.debug.xcconfig"; sourceTree = "<group>"; };
+		2E464423200EA2E800B334F9 /* Shoutbox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shoutbox.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E464426200EA2E800B334F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2E464428200EA2E800B334F9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2E46442B200EA2E800B334F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2E46442D200EA2E800B334F9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2E464430200EA2E800B334F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2E464432200EA2E800B334F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2E464438200EA5C300B334F9 /* MessageTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewController.swift; sourceTree = "<group>"; };
+		2E46443A200EA5E200B334F9 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		8807F9BDC923D703416A9B4C /* Pods-Shoutbox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shoutbox.release.xcconfig"; path = "Pods/Target Support Files/Pods-Shoutbox/Pods-Shoutbox.release.xcconfig"; sourceTree = "<group>"; };
+		A0EFF75AAE60CF5613E51FBE /* Pods_Shoutbox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shoutbox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2E464420200EA2E700B334F9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B8EA7B7E39D211034E2680D4 /* Pods_Shoutbox.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2E46441A200EA2E700B334F9 = {
+			isa = PBXGroup;
+			children = (
+				2E464425200EA2E800B334F9 /* Shoutbox */,
+				2E464424200EA2E800B334F9 /* Products */,
+				F0796E296A860E3F7B397997 /* Pods */,
+				A1AB24D8FA3D540D0C76B573 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		2E464424200EA2E800B334F9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2E464423200EA2E800B334F9 /* Shoutbox.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2E464425200EA2E800B334F9 /* Shoutbox */ = {
+			isa = PBXGroup;
+			children = (
+				2E464426200EA2E800B334F9 /* AppDelegate.swift */,
+				2E464428200EA2E800B334F9 /* ViewController.swift */,
+				2E46442A200EA2E800B334F9 /* Main.storyboard */,
+				2E464438200EA5C300B334F9 /* MessageTableViewController.swift */,
+				2E46443A200EA5E200B334F9 /* Message.swift */,
+				2E46442D200EA2E800B334F9 /* Assets.xcassets */,
+				2E46442F200EA2E800B334F9 /* LaunchScreen.storyboard */,
+				2E464432200EA2E800B334F9 /* Info.plist */,
+			);
+			path = Shoutbox;
+			sourceTree = "<group>";
+		};
+		A1AB24D8FA3D540D0C76B573 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A0EFF75AAE60CF5613E51FBE /* Pods_Shoutbox.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F0796E296A860E3F7B397997 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				16FDFCC3E5D1070CCF436BBD /* Pods-Shoutbox.debug.xcconfig */,
+				8807F9BDC923D703416A9B4C /* Pods-Shoutbox.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2E464422200EA2E700B334F9 /* Shoutbox */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2E464435200EA2E800B334F9 /* Build configuration list for PBXNativeTarget "Shoutbox" */;
+			buildPhases = (
+				DA4634690D14FE92F223B8EF /* [CP] Check Pods Manifest.lock */,
+				2E46441F200EA2E700B334F9 /* Sources */,
+				2E464420200EA2E700B334F9 /* Frameworks */,
+				2E464421200EA2E700B334F9 /* Resources */,
+				154AF9EF5C50BF3815A9667F /* [CP] Embed Pods Frameworks */,
+				08408DA67A7556DBCCBB0F9A /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Shoutbox;
+			productName = Shoutbox;
+			productReference = 2E464423200EA2E800B334F9 /* Shoutbox.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2E46441B200EA2E700B334F9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = merdigon;
+				TargetAttributes = {
+					2E464422200EA2E700B334F9 = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 2E46441E200EA2E700B334F9 /* Build configuration list for PBXProject "Shoutbox" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2E46441A200EA2E700B334F9;
+			productRefGroup = 2E464424200EA2E800B334F9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2E464422200EA2E700B334F9 /* Shoutbox */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2E464421200EA2E700B334F9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E464431200EA2E800B334F9 /* LaunchScreen.storyboard in Resources */,
+				2E46442E200EA2E800B334F9 /* Assets.xcassets in Resources */,
+				2E46442C200EA2E800B334F9 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		08408DA67A7556DBCCBB0F9A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Shoutbox/Pods-Shoutbox-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		154AF9EF5C50BF3815A9667F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Shoutbox/Pods-Shoutbox-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/DGElasticPullToRefresh/DGElasticPullToRefresh.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DGElasticPullToRefresh.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Shoutbox/Pods-Shoutbox-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DA4634690D14FE92F223B8EF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Shoutbox-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2E46441F200EA2E700B334F9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E464429200EA2E800B334F9 /* ViewController.swift in Sources */,
+				2E46443B200EA5E200B334F9 /* Message.swift in Sources */,
+				2E464439200EA5C300B334F9 /* MessageTableViewController.swift in Sources */,
+				2E464427200EA2E800B334F9 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		2E46442A200EA2E800B334F9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2E46442B200EA2E800B334F9 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2E46442F200EA2E800B334F9 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2E464430200EA2E800B334F9 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2E464433200EA2E800B334F9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2E464434200EA2E800B334F9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2E464436200EA2E800B334F9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 16FDFCC3E5D1070CCF436BBD /* Pods-Shoutbox.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Shoutbox/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = gfwegf.Shoutbox;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		2E464437200EA2E800B334F9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8807F9BDC923D703416A9B4C /* Pods-Shoutbox.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Shoutbox/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = gfwegf.Shoutbox;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2E46441E200EA2E700B334F9 /* Build configuration list for PBXProject "Shoutbox" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E464433200EA2E800B334F9 /* Debug */,
+				2E464434200EA2E800B334F9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2E464435200EA2E800B334F9 /* Build configuration list for PBXNativeTarget "Shoutbox" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E464436200EA2E800B334F9 /* Debug */,
+				2E464437200EA2E800B334F9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2E46441B200EA2E700B334F9 /* Project object */;
+}
