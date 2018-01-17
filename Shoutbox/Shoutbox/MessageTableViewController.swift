@@ -8,30 +8,43 @@
 
 import UIKit
 import Alamofire
+import DGElasticPullToRefresh
 
 class MessageTableViewController: UITableViewController {
 
     var messages: [Message] = []
     let urlAddress = "https://home.agh.edu.pl/~ernst/shoutbox.php?secret=ams2017"
     
+    deinit {
+        tableView.dg_removePullToRefresh()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
+        let loadingView = DGElasticPullToRefreshLoadingViewCircle()
+        loadingView.tintColor = UIColor(red: 78/255.0, green: 221/255.0, blue: 200/255.0, alpha: 1.0)
+        tableView.dg_addPullToRefreshWithActionHandler({ [weak self] () -> Void in
+            self?.reloadData()
+            self?.tableView.dg_stopLoading()
+            }, loadingView: loadingView)
+        tableView.dg_setPullToRefreshFillColor(UIColor(red: 57/255.0, green: 67/255.0, blue: 89/255.0, alpha: 1.0))
+        tableView.dg_setPullToRefreshBackgroundColor(tableView.backgroundColor!)
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
     @IBAction func addMessage_click(_ sender: Any) {
-        let alertController = UIAlertController(title: "New message", message: "Please state your name and message", preferredStyle: .alert)
+        let alertController = UIAlertController(title: NSLocalizedString("NewMessage", comment: ""), message: NSLocalizedString("PleaseNameAndMessage", comment: ""), preferredStyle: .alert)
         alertController.addTextField(configurationHandler: { textField in
-            textField.placeholder = "Your name"
+            textField.placeholder = NSLocalizedString("YourName", comment: "")
         } )
         alertController.addTextField(configurationHandler: { textField in
-            textField.placeholder = "Your message"
+            textField.placeholder = NSLocalizedString("YourMessage", comment: "")
         } )
-        let sendAction = UIAlertAction(title: "Send", style: .default, handler: { action in
+        let sendAction = UIAlertAction(title: NSLocalizedString("Send", comment: ""), style: .default, handler: { action in
             let name = alertController.textFields?[0].text
             let messageValue = alertController.textFields?[1].text
             
@@ -47,7 +60,7 @@ class MessageTableViewController: UITableViewController {
             }
         })
         alertController.addAction(sendAction)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in })
+        let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: { _ in })
         alertController.addAction(cancelAction)
         self.present(alertController, animated: true, completion: { _ in })
     }
@@ -67,7 +80,6 @@ class MessageTableViewController: UITableViewController {
             var readedMessages: [Message] = []
             
             Alamofire.request(urlAddress).responseJSON(completionHandler: { response in
-                print("dupa")
                 let jsonValue = response.result.value as! NSDictionary
                 let messageArray = jsonValue.object(forKey: "entries") as! NSArray
                 
@@ -106,8 +118,9 @@ class MessageTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
 
-        cell.textLabel?.text = "\(Int(Int(Date().timeIntervalSince(messages[indexPath.row].timestamp))/60)) minutes ago"
-        cell.detailTextLabel?.text = "\(messages[indexPath.row].author) wrote: \(messages[indexPath.row].message)"
+        cell.textLabel?.text = "\(Int(Int(Date().timeIntervalSince(messages[indexPath.row].timestamp))/60)) \(NSLocalizedString("MinutesAgo", comment: ""))"
+    
+        cell.detailTextLabel?.text = "\(messages[indexPath.row].author) \(NSLocalizedString("Wrote", comment: "")) \(messages[indexPath.row].message)"
 
         return cell
     }

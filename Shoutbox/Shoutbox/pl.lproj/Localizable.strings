@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  Shoutbox
+
+  Created by merdigon on 17/01/2018.
+  Copyright © 2018 merdigon. All rights reserved.
+*/
+"NewMessage" = "Nowa wiadomość";
+"PleaseNameAndMessage" = "Proszę wpisać swoje imie i wiadomość";
+"YourName" = "Twoje imie";
+"YourMessage" = "Twoja wiadomość";
+"Cancel" = "Anuluj";
+"MinutesAgo" = "minut temu";
+"Send" = "Wyślij";
+"Wrote" = "napisał:";
