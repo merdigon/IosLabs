@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2E2BCAD220112E68006096A7"
-               BuildableName = "ImageDownloader.app"
-               BlueprintName = "ImageDownloader"
-               ReferencedContainer = "container:ImageDownloader.xcodeproj">
+               BlueprintIdentifier = "2E2BCAF4201140CF006096A7"
+               BuildableName = "Downloader.app"
+               BlueprintName = "Downloader"
+               ReferencedContainer = "container:Downloader.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2E2BCAD220112E68006096A7"
-            BuildableName = "ImageDownloader.app"
-            BlueprintName = "ImageDownloader"
-            ReferencedContainer = "container:ImageDownloader.xcodeproj">
+            BlueprintIdentifier = "2E2BCAF4201140CF006096A7"
+            BuildableName = "Downloader.app"
+            BlueprintName = "Downloader"
+            ReferencedContainer = "container:Downloader.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -55,10 +55,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2E2BCAD220112E68006096A7"
-            BuildableName = "ImageDownloader.app"
-            BlueprintName = "ImageDownloader"
-            ReferencedContainer = "container:ImageDownloader.xcodeproj">
+            BlueprintIdentifier = "2E2BCAF4201140CF006096A7"
+            BuildableName = "Downloader.app"
+            BlueprintName = "Downloader"
+            ReferencedContainer = "container:Downloader.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -74,10 +74,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2E2BCAD220112E68006096A7"
-            BuildableName = "ImageDownloader.app"
-            BlueprintName = "ImageDownloader"
-            ReferencedContainer = "container:ImageDownloader.xcodeproj">
+            BlueprintIdentifier = "2E2BCAF4201140CF006096A7"
+            BuildableName = "Downloader.app"
+            BlueprintName = "Downloader"
+            ReferencedContainer = "container:Downloader.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

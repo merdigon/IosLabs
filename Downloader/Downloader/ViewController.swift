@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  ImageDownloader
+//  Downloader
 //
 //  Created by merdigon on 18/01/2018.
 //  Copyright © 2018 merdigon. All rights reserved.
