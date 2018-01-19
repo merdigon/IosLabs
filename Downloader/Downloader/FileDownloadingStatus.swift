@@ -14,4 +14,6 @@ class FileDownloadingStatus {
     var downloadPercentStatus: Double = 0.0
     var image: UIImage?
     var imageUrl: String = ""
+    var detectedFaces: Int?
+    var fiftyPercentStageWasLogged = false
 }

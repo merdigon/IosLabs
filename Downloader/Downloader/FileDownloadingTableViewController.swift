@@ -8,11 +8,12 @@
 
 import UIKit
 
-class FileDownloadingTableViewController: UITableViewController, URLSessionDownloadDelegate {
+class FileDownloadingTableViewController: UITableViewController, URLSessionDownloadDelegate, UIApplicationDelegate  {
     
 
 
     var downloadingFiles: [FileDownloadingStatus] = []
+    var downloadStartTime: NSDate?
     
     var imagesToDownload : [(String, String)] =
         [ ("Rodzinka", "https://upload.wikimedia.org/wikipedia/commons/0/04/Dyck,_Anthony_van_-_Family_Portrait.jpg"),
@@ -22,9 +23,10 @@ class FileDownloadingTableViewController: UITableViewController, URLSessionDownl
           ("Bitwa", "https://upload.wikimedia.org/wikipedia/commons/c/c8/Valmy_Battle_painting.jpg") ]
     
     @IBAction func playButton_Click(_ sender: Any) {
+        downloadStartTime = NSDate()
         for imageLink in imagesToDownload {
             if let imageURL: URL = URL(string: imageLink.1) {
-                let config = URLSessionConfiguration.background(withIdentifier:"url_session_\(imageLink.1)")
+                let config = URLSessionConfiguration.background(withIdentifier:"\(imageLink.1)")
                 config.sessionSendsLaunchEvents = true
                 config.isDiscretionary = true
                 let session = URLSession(configuration: config, delegate: self, delegateQueue: OperationQueue.main)
@@ -36,6 +38,8 @@ class FileDownloadingTableViewController: UITableViewController, URLSessionDownl
                 progressObject.imageUrl = imageLink.1
                 
                 downloadingFiles.append(progressObject)
+                let now = NSDate()
+                print("\(now.timeIntervalSince(downloadStartTime! as Date)) Start downloading file \(imageLink.0)")
                 task.resume()
             }
         }
@@ -47,6 +51,11 @@ class FileDownloadingTableViewController: UITableViewController, URLSessionDownl
         for var downloadingProgress in downloadingFiles {
             if downloadingProgress.imageUrl == downloadTask.currentRequest?.url?.absoluteString {
                 downloadingProgress.downloadPercentStatus = Double((100 * totalBytesWritten)/totalBytesExpectedToWrite)
+                
+                if downloadingProgress.downloadPercentStatus > 50 && !downloadingProgress.fiftyPercentStageWasLogged {
+                    print("\(NSDate().timeIntervalSince(downloadStartTime! as Date)) 50% downloading file \(downloadingProgress.imageName)")
+                    downloadingProgress.fiftyPercentStageWasLogged = true
+                }
             }
         }
         DispatchQueue.main.async {
@@ -54,19 +63,52 @@ class FileDownloadingTableViewController: UITableViewController, URLSessionDownl
         }
     }
     
+    func application(_ application: UIApplication,
+                     handleEventsForBackgroundURLSession identifier: String,
+                     completionHandler: @escaping () -> Void)
+    {
+        completionHandler()
+    }
+    
     @available(iOS 7.0, *)
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
-        
+        handleImageDownloadingFinish(urlPath: (downloadTask.currentRequest?.url?.absoluteString)!, locationPath: location)
+    }
+    
+    func handleImageDownloadingFinish(urlPath: String, locationPath: URL) {
         for var downloadingProgress in downloadingFiles {
-            if downloadingProgress.imageUrl == downloadTask.currentRequest?.url?.absoluteString {
+            if downloadingProgress.imageUrl == urlPath {
+                print("\(NSDate().timeIntervalSince(downloadStartTime! as Date)) Finished downloading file \(downloadingProgress.imageName)")
                 downloadingProgress.downloadPercentStatus = 100
                 
-                let data = try? Data(contentsOf: location)
+                let data = try? Data(contentsOf: locationPath)
                 downloadingProgress.image = UIImage(data: data!)!
+                
+                detectFaces(downloadedImage: downloadingProgress)
                 
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
+            }
+        }
+    }
+    
+    func detectFaces(downloadedImage: FileDownloadingStatus) {
+        let queue = DispatchQueue(label: "faceDetection_\(downloadedImage.imageName)")
+        queue.async {
+            print("\(NSDate().timeIntervalSince(self.downloadStartTime! as Date)) Begin face detecting of file \(downloadedImage.imageName)")
+            let faceDetectionTask = CIDetector(ofType: "CIDetectorTypeFace", context: nil, options: [CIDetectorAccuracy: CIDetectorAccuracyHigh])
+            let faceFeatures = faceDetectionTask?.features(in: CIImage(image: downloadedImage.image!)!)
+            downloadedImage.detectedFaces = 0
+            for foundFeature in faceFeatures! {
+                if foundFeature.type == "Face" {
+                    downloadedImage.detectedFaces! += 1
+                }
+            }
+            print("\(NSDate().timeIntervalSince(self.downloadStartTime! as Date)) Face detecting file \(downloadedImage.imageName) finished! Found \(downloadedImage.detectedFaces!) faces.")
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
             }
         }
     }
@@ -104,6 +146,10 @@ class FileDownloadingTableViewController: UITableViewController, URLSessionDownl
 
         cell.textLabel?.text = "File: \(downloadingFiles[indexPath.row].imageName)"
         cell.detailTextLabel?.text = "Status: \(downloadingFiles[indexPath.row].downloadPercentStatus)%"
+        
+        if downloadingFiles[indexPath.row].detectedFaces != nil {
+            cell.detailTextLabel?.text! += "  Detected faces: \(downloadingFiles[indexPath.row].detectedFaces!)"
+        }
         
         if downloadingFiles[indexPath.row].downloadPercentStatus == 100 {
             cell.imageView?.image = downloadingFiles[indexPath.row].image
