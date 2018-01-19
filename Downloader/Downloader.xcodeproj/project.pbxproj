@@ -24,8 +24,8 @@
 		2E2BCAFF201140CF006096A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2E2BCB02201140CF006096A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2E2BCB04201140CF006096A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2E2BCB0A20114146006096A7 /* FileDownloadingStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileDownloadingStatus.swift; path = ../../ImageDownloader/ImageDownloader/FileDownloadingStatus.swift; sourceTree = "<group>"; };
-		2E2BCB0B20114146006096A7 /* FileDownloadingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileDownloadingTableViewController.swift; path = ../../ImageDownloader/ImageDownloader/FileDownloadingTableViewController.swift; sourceTree = "<group>"; };
+		2E2BCB0A20114146006096A7 /* FileDownloadingStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileDownloadingStatus.swift; sourceTree = "<group>"; };
+		2E2BCB0B20114146006096A7 /* FileDownloadingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileDownloadingTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -309,6 +309,7 @@
 				2E2BCB09201140CF006096A7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
